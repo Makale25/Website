@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-COURSE</title>
+    <style>
+        .flex{
+            display:flex;
+            justify-content: center;
+        }
+        .bg{
+            width: 900px;
+            height: 550px;
+            background-image: linear-gradient(to right, #ccd4da, #7d8fb6);
+            border-radius: 50px;   
+        }
+        .topbar{
+            width: 900px;
+            height: 100px;
+            background-image: linear-gradient(to right, #0f123b, #000785);
+            border-radius: 50px 50px 0px 0px;
+            display: flex; /* Center content vertically */
+            align-items: center; /* Center content vertically */
+        }
+        .text1{
+            color: rgb(223, 223, 223);
+            font-size: 80px;
+            margin-left: 105px;
+            margin-top: 10px;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+        }
+        .incomebar{
+            width: 330px;
+            height: 70px;
+            background-color: rgb(65, 202, 2);
+            border-radius: 30px;
+            box-shadow: 2px 3px #0000005d;
+            margin-left: 70px;
+            position: relative;
+            display: flex;
+            top: 60px;
+        }
+        .expensesbar{
+            width: 330px;
+            height: 70px;
+            background-color: rgb(202, 2, 2);
+            border-radius: 30px;
+            box-shadow: 2px 3px #0000005d;
+            margin-left: 430px;
+            position: relative;
+            display: flex;
+            top: -10px;
+        }
+        .profitbar{
+            width: 700px;
+            height: 70px;
+            background-color: rgb(255, 115, 0);
+            border-radius: 30px;
+            margin: 0 auto;
+            margin-left: -30px;
+            box-shadow: 2px 3px #0000005d;
+            position: relative;
+            top: 30px;
+            display: flex;
+            margin-left: 70px;
+        }
+        .changeincome{
+            width: 330px;
+            height: 60px;
+            background-color: rgba(168, 167, 167, 0.568);
+            border-radius: 40px;
+            box-shadow: 2px 3px #0000005d;
+            margin-left: 70px;
+            position: relative;
+            top: 100px; /* Adjusted position */
+            justify-content: left;
+            align-items: center;
+            display: flex; /* Add display:flex to allow alignment of child elements */
+        }
+
+        .changeincome-text {
+            color: black;
+            font-size: 22px;
+            margin-left: 75px;
+            margin-top: 60px; /* Adjusted margin-top value to position the text above the bar */
+            position: absolute; /* Added absolute positioning */
+        }
+
+        .addexpense{
+            width: 330px;
+            height: 60px;
+            background-color: rgba(168, 167, 167, 0.568);
+            border-radius: 40px;
+            box-shadow: 2px 3px #0000005d;
+            margin-left: 438px; /* Adjusted margin-left value */
+            position: relative;
+            top: 40px; /* Adjusted position */
+            justify-content: left;
+            align-items: center;
+            display: flex; /* Add display:flex to allow alignment of child elements */
+        }
+
+        .addexpense-text {
+            color: black;
+            font-size: 22px;
+            margin-left: 440px;
+            margin-top: 0px; /* Adjusted margin-top value to position the text above the bar */
+            position: absolute; /* Added absolute positioning */
+        }
+
+        .income-text, .expenses-text, .profit-text {
+            color: black;
+            font-size: 22px; /* Adjust the font size as needed */
+            margin-left: 24px; /* Position the text at the left */
+            align-self: center;
+        }
+        input[type="text"] {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-size: 22px;
+            margin-left: 25px;
+            margin-top: 0px;
+        }
+
+
+
+
+        .changeincomebutton{
+            width: 290px;
+            height: 45px;
+            background-image: linear-gradient(to left, #0f123b, #000785);
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: 200;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border-radius: 50px;
+            border: none;
+            margin-top: 130px;
+            margin-left: 20px;
+            position: absolute;
+
+        }
+        .changeincomebutton:active{
+            background-image: linear-gradient(to right, #0f123b, #0f123b); /* gradient */
+        }
+
+        .addexpensebutton{
+            width: 290px;
+            height: 45px;
+            background-image: linear-gradient(to right, #0f123b, #000785); /* gradient */
+            color: aliceblue;
+            font-size: 20px;
+            font-weight: 200;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border-radius: 50px;
+            border: none;
+            margin-top: 130px;
+            margin-left: 20px;
+            position: absolute;
+
+        }
+        .addexpensebutton:active{
+            background-image: linear-gradient(to right, #0f123b, #0f123b); /* gradient */
+        }
+
+        .income-value, .expenses-value, .profit-value{
+            font-size: 36px;
+            margin-left: 10px;
+            align-self: center;
+        }
+
+        #history {
+    width: 70px;
+    height: 70px;
+    background-color: #000785;
+    box-shadow: 2px 2px #0000005d;
+    border: none;
+    border-radius: 20px;
+    margin-left: 800px;
+    margin-top: 27.5px;
+    transition: height 3.5s;
+    transition: width 0.5s;
+    position: relative; /* Added position property */
+    top: 0; /* Changed from bottom: 0; */
+    border-color: black;
+}
+
+#history.expand {
+    width: 170px;
+    height: 365px;
+    top: -295px; 
+}
+
+.lines {
+    height: 60px;
+    width: 50px;
+    filter: invert(90%);
+    
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="bg">
+            
+            <div class="topbar">
+                <div class="text1">EXPENSE TRACKER</div>
+            </div>
+
+            <div class="incomebar">
+                <div class="income-text">Income:</div>
+                <div class="income-value">0</div> <!-- Display income value here -->
+            </div>
+
+            <div class="expensesbar">
+                <div class="expenses-text">Expenses:</div>
+                <div class="expenses-value">0</div> <!-- Display expenses value here -->
+            </div>
+
+            <div class="profitbar">
+                <div class="profit-text">Profit:</div>
+                <div class="profit-value">0</div> <!-- Display profit value here -->
+            </div>
+
+            <div class="changeincome-text">CHANGE INCOME</div>
+            <div class="changeincome">
+                <input id="income-input" type="text" placeholder="Enter income">
+                <button id="change-income-btn" class="changeincomebutton">CHANGE</button> <!-- Change button -->
+            </div>
+
+            <div class="addexpense-text">ADD EXPENSE</div>
+            <div class="addexpense">
+                <input id="expense-input" type="text" placeholder="Add expense">
+                <button id="add-expense-btn" class="addexpensebutton">ADD</button> <!-- Add button -->
+            </div>
+
+            <button id="history" onclick="expandbutton()"></button>
+    
+            
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const incomeInput = document.getElementById('income-input');
+        const changeIncomeBtn = document.getElementById('change-income-btn');
+        const expenseInput = document.getElementById('expense-input');
+        const addExpenseBtn = document.getElementById('add-expense-btn');
+        const incomeValue = document.querySelector('.income-value');
+        const expensesValue = document.querySelector('.expenses-value');
+        const profitValue = document.querySelector('.profit-value');
+
+        // Initial values
+        let totalIncome = 0;
+        let totalExpenses = 0;
+
+        // Event listener for changing income
+        changeIncomeBtn.addEventListener('click', function() {
+            const newIncome = parseFloat(incomeInput.value);
+            if (!isNaN(newIncome)) {
+                totalIncome = newIncome;
+                incomeValue.textContent = totalIncome.toFixed(2);
+                calculateProfit();
+                incomeInput.value = ''; // Clear input field
+            } else {
+                alert('Please enter a valid income amount.');
+            }
+        });
+
+        // Event listener for adding expense
+        addExpenseBtn.addEventListener('click', function() {
+            const newExpense = parseFloat(expenseInput.value);
+            if (!isNaN(newExpense)) {
+                totalExpenses += newExpense;
+                expensesValue.textContent = totalExpenses.toFixed(2);
+                calculateProfit();
+                expenseInput.value = ''; // Clear input field
+            } else {
+                alert('Please enter a valid expense amount.');
+            }
+        });
+
+        // Function to calculate profit
+        function calculateProfit() {
+            const profit = totalIncome - totalExpenses;
+            profitValue.textContent = profit.toFixed(2);
+        }
+        
+        function expandbutton() {
+            var button = document.getElementById("history");
+            button.classList.toggle("expand")
+        }
+
+
+    </script>
+</body>
+</html>
